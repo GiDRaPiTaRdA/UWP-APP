@@ -1,0 +1,58 @@
+﻿<Page x:Class="UWP_MEF.View.SubPages.BlankPageFrame2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UWP_MEF.View"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+              Background="#88000000">
+            <StackPanel Margin="10">
+                <TextBlock Text="Frame 2"
+                           FontSize="100"
+                           Foreground="White" />
+                <TextBlock Text="Page Models of Universal Windows Platform"
+                           FontSize="50"
+                           Foreground="White" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1"
+              Margin="10">
+
+            <ScrollViewer VerticalAlignment="Bottom"
+                          VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Disabled">
+                <TextBlock Margin="50"
+                           TextAlignment="Center"
+                           Foreground="Black"
+                           TextWrapping="Wrap"
+                           FontSize="25"
+                           VerticalAlignment="Top">  
+                   Page Models
+Typically, in Universal Windows Platform (UWP) applications, single page navigation model is used.
+
+Important features are −
+
+A single page navigation model maintains all the context of your application and additional content and data into a central frame.
+
+You can divide the content of your application into multiple pages. However, when moving from one page to another, your application loads the pages into a main page form.
+
+Neither the main page of your application is unloaded nor the code and data is unloaded, it makes it easier to manage state, and provide smoother transition animations between pages.
+
+Multi-page navigation is also used for navigating between different pages or screens without worrying about the application context. In multi-page navigation, each page has its own set of functions, user interface and data etc.
+
+Multi-pages navigation is typically used in web pages within the website.
+                </TextBlock>
+            </ScrollViewer>
+        </Grid>
+
+    </Grid>
+</Page>
+

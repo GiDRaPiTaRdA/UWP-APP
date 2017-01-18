@@ -1,0 +1,58 @@
+﻿<Page x:Class="UWP_MEF.View.SubPages.BlankPageFrame3"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UWP_MEF.View"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+              Background="#88000000">
+            <StackPanel Margin="10">
+                <TextBlock Text="Frame 3"
+                           FontSize="100"
+                           Foreground="White" />
+                <TextBlock Text="The Navigation structure of Universal Windows Platform"
+                           FontSize="50"
+                           Foreground="White" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1"
+              Margin="10">
+
+            <ScrollViewer VerticalAlignment="Bottom"
+                          VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Disabled">
+                <TextBlock Margin="50"
+                           TextAlignment="Center"
+                           Foreground="Black"
+                           TextWrapping="Wrap"
+                           FontSize="25"
+                           VerticalAlignment="Top">  
+                    Navigation Structure
+In multi-page navigation, each page has its own set of functions, user interface and data etc. For example, a photo application may have one page for capturing photos, then when the user wants to edit the photo, it navigates to another page and to maintain the image library, it has another page.
+
+The navigation structure of your application is defined by how these pages are organized.
+
+Following are the ways to structure navigation in your application −
+
+Hierarchy
+In this type of navigation structuring,
+
+Pages are organized into a tree like structure.
+
+Each child page has only one parent, but a parent can have one or more child pages.
+
+To reach a child page, you have to travel through the parent.
+                </TextBlock>
+            </ScrollViewer>
+        </Grid>
+
+    </Grid>
+</Page>

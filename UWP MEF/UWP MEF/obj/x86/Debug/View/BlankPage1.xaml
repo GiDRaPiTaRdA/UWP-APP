@@ -1,0 +1,184 @@
+﻿<Page x:Class="UWP_MEF.View.BlankPage1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UWP_MEF.View"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:converters="using:UWP_MEF.Converters"
+      mc:Ignorable="d">
+
+
+    <UserControl.Resources>
+        <x:String x:Key="Title">Hello, I'm BLANK1 PAGE</x:String>
+        <x:Double x:Key="BasicSize">50</x:Double>
+        <SolidColorBrush x:Key="ColorBrush"
+                         Color="White" />
+        <SolidColorBrush x:Key="OpacityColorBrush"
+                         Color="#88FFFFff" />
+        <converters:EnumToIntConverter x:Key="EnumToIntConverter" />
+
+
+        <DataTemplate x:Key="BackToMainMenuButton">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Navigate to MAIN" />
+
+
+                <!--<Path.Data>
+                        <GeometryGroup>
+                            <PathGeometry Figures="M227.619,444.2h-122.9c-33.4,0-60.5-27.2-60.5-60.5V87.5c0-33.4,27.2-60.5,60.5-60.5h124.9c7.5,0,13.5-6,13.5-13.5
+			s-6-13.5-13.5-13.5h-124.9c-48.3,0-87.5,39.3-87.5,87.5v296.2c0,48.3,39.3,87.5,87.5,87.5h122.9c7.5,0,13.5-6,13.5-13.5
+			S235.019,444.2,227.619,444.2z" />
+                            <PathGeometry Figures="M450.019,226.1l-85.8-85.8c-5.3-5.3-13.8-5.3-19.1,0c-5.3,5.3-5.3,13.8,0,19.1l62.8,62.8h-273.9c-7.5,0-13.5,6-13.5,13.5
+			s6,13.5,13.5,13.5h273.9l-62.8,62.8c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4l85.8-85.8
+			C455.319,239.9,455.319,231.3,450.019,226.1z" />
+                        </GeometryGroup>
+                    </Path.Data>-->
+
+
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+
+
+
+
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill"
+                        ImageSource="../Assets/kartinka-zastavka.orig.jpg" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+              Background="{StaticResource OpacityColorBrush}"
+              VerticalAlignment="Top"
+              Height="{StaticResource BasicSize}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <AppBarButton Grid.Column="0"
+                          Height="{StaticResource BasicSize}"
+                          Width="{StaticResource BasicSize}"
+                          Icon="Back"
+                          Foreground="{StaticResource ColorBrush}"
+                          Command="{Binding GoBackCommand}" />
+            <AppBarButton Grid.Column="1"
+                          Height="{StaticResource BasicSize}"
+                          Width="{StaticResource BasicSize}"
+                          Icon="Forward"
+                          Foreground="{StaticResource ColorBrush}"
+                          Command="{Binding GoForwardCommand}" />
+            <Button Grid.Column="3"
+                    Height="{StaticResource BasicSize}"
+                    Foreground="{StaticResource ColorBrush}"
+                    Command="{Binding Navigate}"
+                    ContentTemplate="{StaticResource BackToMainMenuButton}">
+
+            </Button>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <SplitView x:ConnectionId='1' x:Name="SplitMenu"
+                       DisplayMode="CompactInline"
+                       IsPaneOpen="{Binding IsOpenHamburgerMenu ,UpdateSourceTrigger=PropertyChanged}"
+                       CompactPaneLength="50"
+                       OpenPaneLength="220"
+                       Background="Transparent">
+                <SplitView.Pane>
+                    <StackPanel Background="Transparent">
+                        <StackPanel Orientation="Horizontal"
+                                    Background="DarkGray">
+                            <Button FontFamily="Segoe MDL2 Assets"
+                                    Content="&#xE700;"
+                                    Width="50"
+                                    Height="50"
+                                    Background="Transparent"
+                                    Command="{Binding ToggleHamburgerMenuCommand}">
+                            </Button>
+                            <TextBlock Text="Navigation in UWP"
+                                       FontFamily="Berlin Sans FB"
+                                       FontSize="18"
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Background="Transparent"
+                                    Content="D"
+                                    FontSize="26.667"
+                                    Width="50"
+                                    Height="50"
+                                    Command="{Binding SelectHamburgerItemCommand}"
+                                    CommandParameter="Frame 1"
+                                    FontFamily="Rage Italic" />
+                            <TextBlock Text="Definition"
+                                       FontSize="18"
+                                       VerticalAlignment="Center"
+                                       FontFamily="Rage Italic" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button FontFamily="Rage Italic"
+                                    Content="P"
+                                    Width="50"
+                                    Height="50"
+                                    Background="Transparent"
+                                    Command="{Binding SelectHamburgerItemCommand}"
+                                    CommandParameter="Frame 2"
+                                    FontSize="26.667" />
+                            <TextBlock Text="Page models"
+                                       FontSize="18"
+                                       VerticalAlignment="Center"
+                                       FontFamily="Rage Italic" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button FontFamily="Rage Italic"
+                                    Content="N"
+                                    Width="50"
+                                    Height="50"
+                                    Background="Transparent"
+                                    Command="{Binding SelectHamburgerItemCommand}"
+                                    CommandParameter="Frame 3"
+                                    FontSize="26.667" />
+                            <TextBlock Text="Navigation"
+                                       FontSize="18"
+                                       VerticalAlignment="Center"
+                                       FontFamily="Rage Italic" />
+                        </StackPanel>
+                    </StackPanel>
+                </SplitView.Pane>
+                <SplitView.Content>
+                    <Frame x:ConnectionId='2' x:Name="MainFrame"
+                           SourcePageType="{Binding FrameView,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </SplitView.Content>
+            </SplitView>
+        </Grid>
+
+        <!--
+            <Pivot x:Name="HomePagePivot"
+                   SelectedIndex="{Binding View,Converter={StaticResource EnumToIntConverter}}"
+                   Grid.Column="1">
+
+                <PivotItem>
+                    <Grid Opacity="50">
+                        <TextBlock Text="First pivot"
+                                   FontSize="20" />
+                    </Grid>
+                </PivotItem>
+                <PivotItem>
+                    <TextBlock Text="This is pivot 2" />
+                </PivotItem>
+                <PivotItem>
+                    <TextBlock Text="This is pivot 3" />
+                </PivotItem>
+            </Pivot>
+            -->
+
+    </Grid>
+</Page>
+

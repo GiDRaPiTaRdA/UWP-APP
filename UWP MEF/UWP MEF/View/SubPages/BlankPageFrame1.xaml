@@ -1,0 +1,51 @@
+﻿<Page x:Class="UWP_MEF.View.SubPages.BlankPageFrame1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:UWP_MEF.View"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+              Background="#88000000">
+            <StackPanel Margin="10">
+                <TextBlock Text="Frame 1"
+                           FontSize="100"
+                           Foreground="White" />
+                <TextBlock Text="What the Universal Windows Platform is?"
+                           FontSize="50"
+                           Foreground="White" />
+            </StackPanel>
+
+        </Grid>
+
+        <Grid Grid.Row="1"
+              Margin="10">
+
+            <ScrollViewer VerticalAlignment="Bottom"
+                          VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Disabled">
+                <TextBlock Margin="50"
+                           TextAlignment="Center"
+                           Foreground="Black"
+                           TextWrapping="Wrap"
+                           FontSize="25"
+                           VerticalAlignment="Top">  
+                    In Universal Windows Platform (UWP) applications, navigation is a flexible model of navigation structures,
+                    navigation elements, and system level features. It enables a variety of intuitive user experiences for moving between apps,
+                    pages, and content.
+                    There are some situations and scenarios where all of the content and functionality can easily fit into a single page and
+                    there is no need for the developers to create multiple pages. However, in majority of the applications,
+                    multiple pages are used for interaction between different content and functionality.
+                    When an app has more than one page, then it is very important for the developers to provide the right navigation experience.
+                </TextBlock>
+            </ScrollViewer>
+        </Grid>
+
+    </Grid>
+</Page>
